@@ -1,0 +1,23 @@
+{
+  "name": "merlin-api",
+  "version": "1.0.0",
+  "description": "API Server for Merlin Application",
+  "main": "index.js",
+  "author": "George Kemp",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "apollo-server-hapi": "^2.3.1",
+    "graphql": "^14.0.2",
+    "hapi": "^17.8.1",
+    "jsonexport": "^2.4.1",
+    "node-fetch": "^2.3.0",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

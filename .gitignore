@@ -1,0 +1,7 @@
+# Node Modules
+/node_modules
+
+# Data Files
+*.csv
+*.db
+*.env
