@@ -26,6 +26,7 @@ const typeDefs = gql`
 
     type Query {
         entries: [Entry]
+        entriesByCity (city: String): [Entry]
         locations: [Location]
         countries: [Country]
         entry (date: Float): Entry
@@ -49,6 +50,15 @@ const typeDefs = gql`
             confirmed: Boolean,
             source: String,
         ): Entry
+
+        editEntriesByCity (
+            date: Float
+            city: String,
+            state: String,
+            country: String,
+            confirmed: Boolean,
+            source: String,
+        ): Boolean
 
         removeEntry (
             date: Float

@@ -12,6 +12,11 @@ const resolvers = {
             const sqlParams = generateParams(args);
             return utils.find(sqlRequest, sqlParams);
         },
+        entriesByCity: (context, args) => {
+            const sqlRequest = "SELECT * FROM entries WHERE city=$city";
+            const sqlParams = generateParams(args);
+            return utils.findAll(sqlRequest, sqlParams);
+        },
         locations: () => {
             const sqlRequest =
                 "SELECT city, state, country, count(*) as days from entries GROUP BY city||state||country";
@@ -45,7 +50,18 @@ const resolvers = {
                                 WHERE date=$date`;
             const sqlParams = generateParams(entry);
             return utils.run(sqlRequest, sqlParams).then(() => entry);
-        }
+        },
+        editEntriesByCity: (context, args) => {
+            const sqlRequest = `UPDATE entries SET
+                                city=$city,
+                                state=$state,
+                                country=$country,
+                                confirmed=$confirmed,
+                                source=$source 
+                                WHERE city=$city`;
+            const sqlParams = generateParams(args);
+            return utils.run(sqlRequest, sqlParams).then(() => true);
+        },
     }
 };
 
